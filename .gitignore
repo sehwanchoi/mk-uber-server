@@ -3,3 +3,10 @@ node_modules
 *.txt
 yarn.lock
 yarn-error.log
+
+# dotevn environment variables file
+.env 
+
+# Yarn integrity file
+.yarn-integrity
+
