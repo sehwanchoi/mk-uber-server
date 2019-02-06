@@ -12,7 +12,7 @@ import { verificationTarget } from '../types/types';
 class Verification extends BaseEntity {
     @PrimaryGeneratedColumn() id: number;
     
-    @Column({type: 'text'})
+    @Column({type: 'text', enum: ['PHONE', 'EMAIL']})
     target: verificationTarget;
 
     @Column({type: 'text'})
