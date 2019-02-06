@@ -1,0 +1,19 @@
+# email, phone verification with key(token)
+type Verification {
+    id: Int!
+    target: String!
+    payload: String! 
+    key: String!
+    used: Boolean!
+    createdAt: String!
+    updatedAt: String!
+}
+
+# v = Verification
+# v.target = phone
+# v.payload = ++19173741784
+# v.key = 1234
+
+# user will receive text with the key 1234
+# user type 3456
+# on us, check -> v(payload: 19173741784, key: 1234)
