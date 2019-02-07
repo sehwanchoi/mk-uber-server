@@ -17,6 +17,8 @@ type User {
     isTaken: Boolean! 
     lastLng: Float
     lastLat: Float
+    chat: Chat
+    message: [Message]
     lastOrientation: Float
 } 
 
