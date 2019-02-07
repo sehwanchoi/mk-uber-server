@@ -19,6 +19,9 @@ type User {
     lastLat: Float
     chat: Chat
     message: [Message]
+    verification: [Verification]
+    rideAsPassenger: [Ride]
+    rideAsDriver: [Ride]
     lastOrientation: Float
 } 
 

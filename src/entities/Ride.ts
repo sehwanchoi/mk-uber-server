@@ -4,9 +4,11 @@ import {
     CreateDateColumn,
     Entity, 
     PrimaryGeneratedColumn,
-    UpdateDateColumn, 
+    UpdateDateColumn,
+    ManyToOne, 
 } from 'typeorm'
 import { rideStatus } from '../types/types';
+import User from './User';
 
 
 @Entity()
@@ -43,9 +45,14 @@ class Ride extends BaseEntity {
     @Column({type: 'text'})
     duration: string;
 
-
     @Column({type: 'boolean', default: false })
     isFavorite: boolean; 
+
+    @ManyToOne(type => User, user => user.rideAsPassenger)
+    passenger: User; 
+
+    @ManyToOne(type => User, user => user.rideAsDriver)
+    driver: User;
 
     @CreateDateColumn() createdAt: string;
     @UpdateDateColumn() updatedAt: string;
