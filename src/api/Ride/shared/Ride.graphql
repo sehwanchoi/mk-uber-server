@@ -1,0 +1,21 @@
+type Ride {
+    id: Int!
+    status: String!
+    pickUpAddress: String!
+    pickUpLat: Float!
+    pickUpLng: Float!
+    dropOffAddress: String!
+    dropOffLat: Float!
+    dropOffLng: Float!
+    price: Float!
+    distance: String!
+    duration: String!
+    createdAt: String!
+    updatedAt: String!
+}
+
+type Query {
+    ride: Ride 
+}
+
+# why is distance string? - calculate it based on lat and lng ?? 
