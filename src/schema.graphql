@@ -1,3 +1,65 @@
+type Chat {
+  id: Int!
+  messages: [Message]!
+  participants: [User]!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Message {
+  id: Int!
+  text: String!
+  chat: Chat!
+  user: User!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Place {
+  id: Int!
+  name: String!
+  lat: Float!
+  lng: Float!
+  address: String!
+  isFavorite: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Query {
+  place: Place
+  ride: Ride
+  user: User
+}
+
+type Ride {
+  id: Int!
+  status: String!
+  pickUpAddress: String!
+  pickUpLat: Float!
+  pickUpLng: Float!
+  dropOffAddress: String!
+  dropOffLat: Float!
+  dropOffLng: Float!
+  price: Float!
+  distance: String!
+  duration: String!
+  driver: User!
+  passenger: User!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type FacebookConnectResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type Mutation {
+  FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
+}
+
 type User {
   id: Int!
   email: String
@@ -17,11 +79,13 @@ type User {
   isTaken: Boolean!
   lastLng: Float
   lastLat: Float
+  chat: Chat
+  message: [Message]
+  verification: [Verification]
+  rideAsPassenger: [Ride]
+  rideAsDriver: [Ride]
   lastOrientation: Float
-}
-
-type Query {
-  user: User
+  fbId: String
 }
 
 # email, phone verification with key(token)
@@ -33,4 +97,5 @@ type Verification {
   used: Boolean!
   createdAt: String!
   updatedAt: String!
+  user: User!
 }
