@@ -7,7 +7,7 @@ type Verification {
     used: Boolean!
     createdAt: String!
     updatedAt: String!
-    user: User! 
+    user: User
 }
 
 # v = Verification
