@@ -5,7 +5,7 @@ Server for uber clone. GraphQL, Typescript, NodeJS
 ## Features
 
 ### Public Resolvers 
-- [ ] Sign In / Sign Up with Facebook 
+- [x] Sign In / Sign Up with Facebook 
 - [ ] Sign In with Email 
 - [ ] Starts Phone Number Verification
 - [ ] Complete Phone Number Verification
@@ -14,6 +14,8 @@ Server for uber clone. GraphQL, Typescript, NodeJS
 ---
 
 ### Private Resolvers - many subscriptions for real time update 
+- [ ] Generate JWT
+- [ ] Verify JWT
 - [ ] Verify Email 
 - [ ] Get my profile 
 - [ ] Update my Profile 
