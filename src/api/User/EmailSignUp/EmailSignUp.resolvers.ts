@@ -1,6 +1,7 @@
 import User from '../../../entities/User';
 import {  EmailSignInMutationArgs, EmailSignInResponse } from '../../../types/graph';
 import { Resolvers } from '../../../types/resolvers';
+import createJWT from '../../../utils/createJWT';
 
 
 
@@ -17,11 +18,12 @@ const resolvers: Resolvers = {
                         token: null
                     }
                 } else { // create new user 
-                    await User.create({...args}).save();
+                    const newUser = await User.create({...args}).save();
+                    const token = createJWT(newUser.id)
                     return {
                         ok: true,
                         error: null,
-                        token: "coming soon!"
+                        token
                     }
                 }
             } catch(error) {
