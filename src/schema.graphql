@@ -101,7 +101,6 @@ type StartPhoneVerificationResponse {
   error: String
 }
 
-# email, phone verification with key(token)
 type Verification {
   id: Int!
   target: String!

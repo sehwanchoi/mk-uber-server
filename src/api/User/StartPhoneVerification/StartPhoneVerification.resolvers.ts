@@ -9,7 +9,7 @@ import { sendVerificationSMS } from '../../../utils/sendSMS';
 const resolvers: Resolvers = {
     Mutation: {
         StartPhoneVerification: async (_, args: StartPhoneVerificationMutationArgs): Promise<StartPhoneVerificationResponse> => {
-            const {phoneNumber} = args
+            const {phoneNumber} = args;
             try {
                 const existingVerification = await Verification.findOne({ payload: phoneNumber });
                 if (existingVerification) {

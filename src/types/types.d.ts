@@ -1,9 +1,7 @@
-const PHONE: string = "PHONE"
-const EMAIL: string = "EMAIL"
+export type verificationTarget = "PHONE" | "EMAIL" ;
 
-export type verificationTarget = "EMAIL" | "PHONE"
-
-export type rideStatus =  "ACCEPTED" 
+export type rideStatus =  
+    | "ACCEPTED" 
     | "FINISHED" 
     | "CANCELED"
     | "REQUESTED"
