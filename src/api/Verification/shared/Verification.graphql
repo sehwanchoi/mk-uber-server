@@ -5,4 +5,5 @@ type Verification {
     key: String!
     createdAt: String!
     updatedAt: String
+    verified: Boolean!
 }
