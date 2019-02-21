@@ -9,13 +9,13 @@ Server for uber clone. GraphQL, Typescript, NodeJS
 - [x] Sign In with Email 
 - [x] Starts Phone Number Verification
 - [x] Complete Phone Number Verification
-- [ ] Sign Up With Email 
+- [X] Sign Up With Email 
 
 ---
 
 ### Authentication
-- [ ] Generate JWT
-- [ ] Verify JWT
+- [x] Generate JWT
+- [x] Verify JWT
 
 ---
 
