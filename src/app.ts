@@ -35,6 +35,7 @@ class App {
             // find user id in token and get the user - utils/decodeJWT
             const user = await decodeJWT(token);
             if (user) { 
+                // attach user to req and pass req as context api in graphql server above 
                 req.user = user
             } else {
                 req.user = undefined;
