@@ -1,4 +1,5 @@
 import cors from 'cors';
+import { NextFunction, Response } from 'express';
 import { GraphQLServer } from 'graphql-yoga';
 import helmet from 'helmet';
 import logger from 'morgan';
@@ -8,9 +9,15 @@ import decodeJWT from './utils/decodeJWT';
 class App {
     public app: GraphQLServer
     constructor() {
-        this.app = new GraphQLServer({
-            schema 
-        })
+        // context api is passed into the server and available across all query in the app 
+        this.app = new GraphQLServer({ 
+            schema,
+            context: req => {
+                return {
+                    req: req.request 
+                }
+            }
+        });
         this.middlewares();
     }
 
@@ -22,12 +29,16 @@ class App {
     }
 
     // custom middleware to open jw token 
-    private jwt = async(req, res, next) : Promise<void> => {
+    private jwt = async(req, res: Response, next: NextFunction) : Promise<void> => {
         const token = req.get("X-JWT"); // from header
         if (token) {
             // find user id in token and get the user - utils/decodeJWT
             const user = await decodeJWT(token);
-            console.log(user);
+            if (user) { 
+                req.user = user
+            } else {
+                req.user = undefined;
+            }
         }
         next();
     }

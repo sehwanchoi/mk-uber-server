@@ -15,9 +15,11 @@ const resolvers: Resolvers = {
                 if (existingVerification) {
                     existingVerification.remove();
                 }
+                
                 const newVerification = await Verification.create({
                     payload: phoneNumber,
-                    target: "PHONE"
+                    target: "PHONE",
+                    key: Math.floor(Math.random() * 10000).toString()
                 })
                 console.log(newVerification);
                 // Send SMS 
