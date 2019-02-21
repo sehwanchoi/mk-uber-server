@@ -29,7 +29,7 @@ type Place {
 type Query {
   place: Place
   ride: Ride
-  user: User
+  GetMyProfile: GetMyProfileResponse!
 }
 
 type Ride {
@@ -81,6 +81,12 @@ type FacebookConnectResponse {
   ok: Boolean!
   error: String
   token: String
+}
+
+type GetMyProfileResponse {
+  ok: Boolean!
+  error: String
+  user: User
 }
 
 type User {

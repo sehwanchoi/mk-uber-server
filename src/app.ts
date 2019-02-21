@@ -9,7 +9,7 @@ import decodeJWT from './utils/decodeJWT';
 class App {
     public app: GraphQLServer
     constructor() {
-        // context api is passed into the server and available across all query in the app 
+        // context api is passed into the server and available across all resolvers in the app 
         this.app = new GraphQLServer({ 
             schema,
             context: req => {
