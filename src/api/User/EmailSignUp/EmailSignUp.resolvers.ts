@@ -31,7 +31,7 @@ const resolvers: Resolvers = {
                             const emailVerification = await Verification.create({
                                 payload: email,
                                 target: 'EMAIL'
-                            });
+                            }).save();
                             console.log(emailVerification);
                             await sendVerificationEmail(newUser.fullName, emailVerification.key);
                         }
