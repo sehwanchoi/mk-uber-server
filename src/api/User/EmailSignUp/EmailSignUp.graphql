@@ -1,4 +1,4 @@
-type EmailSignUpReponse {
+type EmailSignUpResponse {
     ok: Boolean!
     error: String
     token: String 
@@ -13,5 +13,5 @@ type Mutation {
         profilePhoto: String,
         age: Int,
         phoneNumber: String!
-    ): EmailSignUpReponse!
+    ): EmailSignUpResponse!
 }

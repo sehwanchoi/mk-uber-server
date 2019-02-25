@@ -7,10 +7,10 @@ import {
     Column, 
     CreateDateColumn, 
     Entity, 
-    PrimaryGeneratedColumn, 
-    UpdateDateColumn, 
-    ManyToOne,
-    OneToMany
+    ManyToOne, 
+    OneToMany, 
+    PrimaryGeneratedColumn,
+    UpdateDateColumn
 } from 'typeorm';
 
 const BCRYPT_ROUNDS = 10;
@@ -35,7 +35,7 @@ class User extends BaseEntity {
     @Column({ type: "text" })
     lastName: string;
 
-    @Column({ type: "int", nullable: true })
+    @Column({ type: "int",  nullable: true })
     age: number
 
     @Column( {type: "text", nullable: true})
