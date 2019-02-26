@@ -9,7 +9,7 @@ const resolvers: Resolvers = {
         CompleteEmailVerification: privateResolver(async(_, args: CompletePhoneVerificationMutationArgs, { req } ):Promise<CompleteEmailVerificationResponse> => {
             const user: User = req.user;
             const { key } = args;
-            if (user.email) {
+            if (user.email && !user.verifiedEmail) {
                 try {
                     const verification = await Verification.findOne({ key, payload: user.email });
                     if (verification) {
@@ -22,7 +22,7 @@ const resolvers: Resolvers = {
                     } else {
                         return {
                             ok: false,
-                            error: "Can verify email"
+                            error: "Can't verify email"
                         }
                     }
                 } catch (error) {
