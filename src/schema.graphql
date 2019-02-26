@@ -63,6 +63,7 @@ type Mutation {
   FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
   RequestEmailVerification: RequestEmailVerificationResponse!
   StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
+  UpdateMyProfile(firstName: String, lastName: String, profilePhoto: String, email: String, password: String, age: Int): UpdateMyProfileResponse!
 }
 
 # Token needed in type: if phone# exists in db, login automatically. otherwise, lead users to sign up page
@@ -129,6 +130,11 @@ type User {
 }
 
 type StartPhoneVerificationResponse {
+  ok: Boolean!
+  error: String
+}
+
+type UpdateMyProfileResponse {
   ok: Boolean!
   error: String
 }
