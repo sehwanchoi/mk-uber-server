@@ -21,7 +21,7 @@ type AddPlaceResponse {
 }
 
 type Mutation {
-  AddPlace(name: String!, lat: Float!, lng: Float!, address: String!, isFav: Boolean): AddPlaceResponse!
+  AddPlace(name: String!, lat: Float!, lng: Float!, address: String!, isFavorite: Boolean): AddPlaceResponse!
   CompleteEmailVerification(key: String!): CompleteEmailVerificationResponse!
   CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
@@ -41,6 +41,7 @@ type Place {
   lng: Float!
   address: String!
   isFavorite: Boolean!
+  user: User!
   createdAt: String!
   updatedAt: String!
 }
@@ -140,6 +141,7 @@ type User {
   ridesAsDriver: [Ride]
   createdAt: String!
   updatedAt: String
+  places: [Place]
 }
 
 type StartPhoneVerificationResponse {

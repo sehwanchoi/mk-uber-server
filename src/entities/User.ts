@@ -16,9 +16,9 @@ import {
 const BCRYPT_ROUNDS = 10;
 import Chat from './Chat'
 import Message from './Message'
+import Place from './Place';
 // import Verification from './Verification'
 import Ride from './Ride'
-import Place from './Place';
 
 @Entity()
 class User extends BaseEntity {
