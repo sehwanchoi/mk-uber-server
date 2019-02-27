@@ -2,9 +2,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import { Options } from 'graphql-yoga';
-import app from './app';
 // connect to typeorm - db 
 import { createConnection } from "typeorm"
+import app from './app';
 import ConnectionOptions from './ormConfig';
 
 // console.log(process.env)

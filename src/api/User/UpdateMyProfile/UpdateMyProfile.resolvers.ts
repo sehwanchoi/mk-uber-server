@@ -1,15 +1,16 @@
 import User from "../../../entities/User";
 import { UpdateMyProfileMutationArgs, UpdateMyProfileResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
+import cleanNullArgs from "../../../utils/cleanNullArg";
 import privateResolver from "../../../utils/privateResolver";
 
 const resolvers : Resolvers = {
     Mutation: {
         UpdateMyProfile: privateResolver(async(_, args: UpdateMyProfileMutationArgs, { req }) : Promise<UpdateMyProfileResponse> => {
             const user: User = req.user;
-            const notNull: any = CleanNullArgs(args)
+            const notNull: any = cleanNullArgs(args)
             // update user with only none null values
-            if(notNull.password !== null) { // Cahnge from args to notNull
+            if(notNull.password !== null) { // Change from args to notNull
                 user.password = args.password;
                 user.save();
                 delete notNull.password;
