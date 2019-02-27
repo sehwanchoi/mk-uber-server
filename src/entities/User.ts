@@ -18,6 +18,7 @@ import Chat from './Chat'
 import Message from './Message'
 // import Verification from './Verification'
 import Ride from './Ride'
+import Place from './Place';
 
 @Entity()
 class User extends BaseEntity {
@@ -89,6 +90,9 @@ class User extends BaseEntity {
 
     @OneToMany(type => Ride, ride => ride.driver )
     rideAsDriver: Ride[];
+
+    @OneToMany(type => Place, place => place.user) 
+    places: Place[];
 
     @CreateDateColumn() createdAt: string
     @UpdateDateColumn() updatedAt: string 

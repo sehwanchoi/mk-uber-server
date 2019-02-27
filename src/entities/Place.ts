@@ -3,9 +3,11 @@ import {
     Column, 
     CreateDateColumn,
     Entity, 
+    ManyToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn, 
 } from 'typeorm'
+import User from './User';
 
 
 @Entity()
@@ -29,6 +31,9 @@ class Place extends BaseEntity {
 
     @CreateDateColumn() createdAt: string;
     @UpdateDateColumn() updatedAt: string;
+
+    @ManyToOne(type => User, user => user.places)
+    user: User
 
 }
 

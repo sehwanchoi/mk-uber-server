@@ -23,4 +23,5 @@ type User {
   ridesAsDriver: [Ride]
   createdAt: String!
   updatedAt: String
+  places: [Place]
 }
