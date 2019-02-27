@@ -3,9 +3,9 @@ import {
     Column, 
     CreateDateColumn,
     Entity, 
+    ManyToOne,
     PrimaryGeneratedColumn,
-    UpdateDateColumn,
-    ManyToOne, 
+    UpdateDateColumn, 
 } from 'typeorm'
 import { rideStatus } from '../types/types';
 import User from './User';
@@ -22,10 +22,10 @@ class Ride extends BaseEntity {
     pickUpAddress: string;
 
     @Column({type: 'double precision', default: 0 })
-    pickupLat: number;
+    pickUpLat: number;
 
     @Column({type: 'double precision', default: 0 })
-    pickupLng: number;
+    pickUpLng: number;
     
     @Column({type: 'text'})
     dropOffAddress: string;
@@ -48,10 +48,10 @@ class Ride extends BaseEntity {
     @Column({type: 'boolean', default: false })
     isFavorite: boolean; 
 
-    @ManyToOne(type => User, user => user.rideAsPassenger)
+    @ManyToOne(type => User, user => user.ridesAsPassenger)
     passenger: User; 
 
-    @ManyToOne(type => User, user => user.rideAsDriver)
+    @ManyToOne(type => User, user => user.ridesAsDriver)
     driver: User;
 
     @CreateDateColumn() createdAt: string;
